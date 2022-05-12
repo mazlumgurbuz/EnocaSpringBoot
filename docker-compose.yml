@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  mysql:
+    platform: linux/amd64
+    container_name: banking
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_USER: root
+      MYSQL_PASSWORD: Secret_123
+      MYSQL_ROOT_PASSWORD: Secret_123
+      MYSQL_DATABASE: banking
+    ports:
+      - "3306:3306"
+    networks:
+      - mysql
+networks:
+  mysql:
+    driver: bridge
+volumes:
+  mysql:
