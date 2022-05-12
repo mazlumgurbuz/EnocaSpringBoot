@@ -10,19 +10,19 @@ for documentation you can use swagger-ui. You can send request and get response 
 
 for Postman http request : 
 Customer api:
- -Get Mapping  : http://localhost:8080/banking/api/v1/customer/getall
+ Get Mapping  : http://localhost:8080/banking/api/v1/customer/getall
                  http://localhost:8080/banking/api/v1/customer//getbyId/{id}
  
- -Post Mapping : http://localhost:8080/banking/api/v1/customer + request body
- -Put Mapping  :http://localhost:8080/banking/api/v1/customer/{identity} + request body
- -Delete Mapping : http://localhost:8080/banking/api/v1/customer/{identity}
+ Post Mapping : http://localhost:8080/banking/api/v1/customer + request body
+ Put Mapping  :http://localhost:8080/banking/api/v1/customer/{identity} + request body
+ Delete Mapping : http://localhost:8080/banking/api/v1/customer/{identity}
  
  Account api:
- -Get Mapping  : http://localhost:8080/banking/api/v1/account/getall
+ Get Mapping  : http://localhost:8080/banking/api/v1/account/getall
                  http://localhost:8080/banking/api/v1/account//getbyId/{id}
  
- -Post Mapping : http://localhost:8080/banking/api/v1/account + request body
- -Put Mapping  :http://localhost:8080/banking/api/v1/account/{identity} + request body
- -Delete Mapping : http://localhost:8080/banking/api/v1/account/{identity}
+ Post Mapping : http://localhost:8080/banking/api/v1/account + request body
+ Put Mapping  :http://localhost:8080/banking/api/v1/account/{identity} + request body
+ Delete Mapping : http://localhost:8080/banking/api/v1/account/{identity}
  
 
