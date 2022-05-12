@@ -10,6 +10,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -33,7 +34,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public CustomerResponse removeById(Long id){
-        var deletedCustomer = customerRepository.findById(id).orElseThrow();
+        var deletedCustomer = customerRepository.findById(id).orElseThrow(() ->new EntityNotFoundException());
         customerRepository.deleteById(id);
         return modelMapper.map(deletedCustomer,CustomerResponse.class);
     }

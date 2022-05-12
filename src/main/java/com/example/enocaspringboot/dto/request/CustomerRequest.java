@@ -13,11 +13,12 @@ import java.util.Objects;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CustomerRequest {
+    private Long id;
     private String name;
     private String surname;
     private String eMail;
     private String phone;
     private String address;
-    private List<Account> accounts;
+    private List<AccountRequest> accounts;
 
 }

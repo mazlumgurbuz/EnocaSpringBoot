@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AccountResponse {
+    private Long id;
     private String iban;
     private AccountStatus accountStatus;
     private double balance;

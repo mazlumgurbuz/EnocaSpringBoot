@@ -11,6 +11,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CustomerResponse {
+    private Long id;
     private String name;
     private String surname;
     private String eMail;

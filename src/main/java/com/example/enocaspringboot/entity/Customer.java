@@ -5,8 +5,6 @@ import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.Objects;
-import java.util.Set;
 
 @Entity
 @Table(name = "customers")
@@ -23,6 +21,7 @@ public class Customer {
     private String eMail;
     private String phone;
     private String address;
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Set<Account> accounts;
+    @OneToMany(cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER)
+    private List<Account> accounts;
 }
