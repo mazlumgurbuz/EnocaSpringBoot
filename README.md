@@ -13,7 +13,7 @@ Customer api:
 
  Get Mapping  : http://localhost:8080/banking/api/v1/customer/getall
  
-                 http://localhost:8080/banking/api/v1/customer//getbyId/{id}
+                 http://localhost:8080/banking/api/v1/customer/getbyId/{id}
  
  Post Mapping : http://localhost:8080/banking/api/v1/customer + request body
  
@@ -25,7 +25,7 @@ Customer api:
  
  Get Mapping  : http://localhost:8080/banking/api/v1/account/getall
  
-                 http://localhost:8080/banking/api/v1/account//getbyId/{id}
+                 http://localhost:8080/banking/api/v1/account/getbyId/{id}
  
  Post Mapping : http://localhost:8080/banking/api/v1/account + request body
  
