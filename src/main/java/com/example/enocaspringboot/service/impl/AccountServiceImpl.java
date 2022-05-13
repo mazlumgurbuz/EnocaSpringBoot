@@ -2,6 +2,7 @@ package com.example.enocaspringboot.service.impl;
 
 import com.example.enocaspringboot.dto.request.AccountRequest;
 import com.example.enocaspringboot.dto.response.AccountResponse;
+import com.example.enocaspringboot.repository.CustomerRepository;
 import com.example.enocaspringboot.service.AccountService;
 import com.example.enocaspringboot.entity.Account;
 import com.example.enocaspringboot.repository.AccountRepository;
@@ -23,27 +24,29 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public AccountResponse createAccount(AccountRequest request) {
         var account = modelMapper.map(request, Account.class);
-        return modelMapper.map(accountRepository.save(account),AccountResponse.class);
+        return modelMapper.map(accountRepository.save(account), AccountResponse.class);
     }
 
     @Override
     public AccountResponse updateAccount(Long identity, AccountRequest request) {
-        var updatedAccount = accountRepository.findById(identity).orElseThrow(()-> new EntityNotFoundException());
-        modelMapper.map(request,updatedAccount);
-        return modelMapper.map(accountRepository.save(updatedAccount),AccountResponse.class);
+        var updatedAccount = accountRepository.findById(identity).orElseThrow(() -> new EntityNotFoundException());
+        modelMapper.map(request, updatedAccount);
+        return modelMapper.map(accountRepository.saveAndFlush(updatedAccount), AccountResponse.class);
     }
 
     @Override
     public AccountResponse removeById(Long identity) {
         var deleted = accountRepository.findById(identity).orElseThrow();
         accountRepository.deleteById(identity);
-        return modelMapper.map(deleted,AccountResponse.class);
+        return modelMapper.map(deleted, AccountResponse.class);
     }
 
     @Override
     public AccountResponse findById(Long id) {
-        var account = accountRepository.findById(id).orElseThrow();
-        return modelMapper.map(account,AccountResponse.class);
+        return modelMapper.map(
+                accountRepository.findById(id)
+                        .orElseThrow(() -> new EntityNotFoundException())
+                , AccountResponse.class);
     }
 
     @Override

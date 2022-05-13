@@ -28,13 +28,13 @@ public class AccountController {
     }
 
     @PostMapping()
-    public AccountResponse addBook(@RequestBody AccountRequest request) {
+    public AccountResponse addAccount(@RequestBody AccountRequest request) {
 
         return accountService.createAccount(request);
     }
 
     @PutMapping(value = "{identity}")
-    public AccountResponse updateAuthor(@PathVariable Long identity, @RequestBody AccountRequest request) {
+    public AccountResponse updateAccount(@PathVariable Long identity, @RequestBody AccountRequest request) {
 
         return accountService.updateAccount(identity, request);
     }

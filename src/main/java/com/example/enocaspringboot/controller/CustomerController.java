@@ -30,13 +30,13 @@ public class CustomerController {
     }
 
     @PostMapping()
-    public CustomerResponse addBook(@RequestBody CustomerRequest request) {
+    public CustomerResponse addCustomer(@RequestBody CustomerRequest request) {
 
         return customerServiceImpl.createCustomer(request);
     }
 
     @PutMapping(value = "{identity}")
-    public CustomerResponse updateAuthor(@PathVariable Long identity, @RequestBody CustomerRequest request) {
+    public CustomerResponse updateCustomer(@PathVariable Long identity, @RequestBody CustomerRequest request) {
 
         return customerServiceImpl.updateCustomer(identity, request);
     }

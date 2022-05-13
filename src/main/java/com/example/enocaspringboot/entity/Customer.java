@@ -1,37 +1,46 @@
 package com.example.enocaspringboot.entity;
 
 import lombok.*;
+import org.hibernate.Hibernate;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name = "customers")
 @DynamicUpdate
-@Data
+@Getter
+@Setter
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotNull
-    @NotBlank
     private String name;
-    @NotNull
-    @NotBlank
     private String surname;
-    @NotNull
-    @NotBlank
     private String eMail;
-    @NotNull
-    @NotBlank
     private String phone;
     private String address;
+    @Column(nullable = true)
     @OneToMany(cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER)
+                fetch = FetchType.LAZY)
     private List<Account> accounts;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        Customer customer = (Customer) o;
+        return id != null && Objects.equals(id, customer.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
+    }
 }
